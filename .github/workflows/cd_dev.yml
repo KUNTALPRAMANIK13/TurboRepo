@@ -1,0 +1,22 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  redoply_everything:
+    name: Redeploy everything to the dev environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into the dev server
+        run: |
+          echo ${{ secrets.SSH_PRIVATE_KEY }} &> ~/ssh_key
+          ssh -i ~/ssh_key az@20.40.57.141
+          cd Turborepo/ && git pull
+          pnpm install
+          pnpm run build
+          pm2 restart web
+          pm2 restart ws-server
+          pm2 restart http-server
