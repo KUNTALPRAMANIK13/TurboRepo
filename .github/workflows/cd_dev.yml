@@ -15,4 +15,4 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > ~/ssh_key
           chmod 600 ~/ssh_key
-          ssh -i ~/ssh_key -o StrictHostKeyChecking=no az@20.40.57.141 "cd Turborepo/ && git pull && pnpm install && pnpm run build && pm2 restart web && pm2 restart ws-server && pm2 restart http-server"
+          ssh -i ~/ssh_key az@20.40.57.141 "cd Turborepo/ && git pull && pnpm install && pnpm run build && pm2 restart web && pm2 restart ws-server && pm2 restart http-server"
