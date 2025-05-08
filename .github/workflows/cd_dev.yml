@@ -7,7 +7,7 @@ on:
 
 jobs:
   redoply_everything:
-    name: Redeploy everything to the dev environment
+    name: Redeploy everything to the dev 
     runs-on: ubuntu-latest
     steps:
       - name: SSH into the dev server
