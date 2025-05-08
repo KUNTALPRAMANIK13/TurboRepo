@@ -1,13 +1,13 @@
-# Turborepo starter
+# Battery Management System (BMS)
 
-This Turborepo starter is maintained by the Turborepo core team.
+This is a Turborepo-based monorepo for a Battery Management System application.
 
-## Using this example
+## Using this project
 
-Run the following command:
+Run the following command to install dependencies:
 
 ```sh
-npx create-turbo@latest
+pnpm install
 ```
 
 ## What's inside?
@@ -16,11 +16,13 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `web`: a [Next.js](https://nextjs.org/) app for the frontend interface
+- `http-server`: an Express.js server for HTTP API endpoints
+- `ws-server`: a WebSocket server for real-time data communication
+- `@repo/ui`: a React component library shared by frontend applications
+- `@repo/prisma`: database models and Prisma client
+- `@repo/eslint-config`: ESLint configurations
+- `@repo/typescript-config`: TypeScript configurations used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -31,13 +33,13 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Prisma](https://www.prisma.io/) for database access
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm build
 ```
 
@@ -46,25 +48,20 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm dev
 ```
 
 ### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
 
 Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
 
 ```
-cd my-turborepo
 npx turbo login
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+This will authenticate the Turborepo CLI with your Vercel account.
 
 Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
